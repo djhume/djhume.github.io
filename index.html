@@ -110,6 +110,7 @@ h2{
   line-height:1.25;margin:0 0 .3rem;letter-spacing:-.005em;
 }
 .entry p{margin:0;max-width:60ch;color:var(--ink)}
+.entry p + p{margin-top:.75rem}
 .tag{
   font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;
   color:var(--ink-soft);margin:0 0 .55rem;
@@ -186,11 +187,12 @@ footer{
     <div class="locator">Engineer &middot; Wellington, New Zealand</div>
     <div class="lede">
       <p>Twenty years in the New Zealand electricity sector: power systems,
-      networks, markets, regulation. I read grid data for a living. The hardest
-      problems sit where the engineering meets the rulebook, and I come at those
-      from the engineering side. What holds my attention is structural &mdash; how
-      the network is put together, and what turns up at its edges, where the grid
-      meets everything people plug into it.</p>
+      networks, markets, regulation. I read grid data for a living.</p>
+      <p>The hard problems are the ones where the engineering runs into the
+      rulebook, and I come at those from the engineering side. What I find
+      interesting is mostly structural &mdash; how the network is put together,
+      and what turns up at the edges, where the grid meets everything people
+      plug into it.</p>
       <p class="aside">I work full time at the Electricity Authority, and the
       paper below carries that affiliation. The views in it are mine, not the
       Authority&rsquo;s. Everything else here is my own time.</p>
@@ -210,17 +212,20 @@ footer{
       <article class="entry">
         <p class="tag">1997&ndash;2025 &middot; New Zealand &middot; preprint</p>
         <h3><a href="https://djhume.github.io/lagging-to-leading/web/lagging-to-leading.html">From Lagging to Leading</a></h3>
-        <p>Twenty-nine years of half-hourly regulatory metering at New Zealand&rsquo;s
-        grid exit points, measuring a national power system&rsquo;s reactive character
-        as it crosses from lagging to leading around 2016. The drift is dominantly the
-        demand side &mdash; about 80% &mdash; and what sits behind it is standing
-        capacitance accumulating behind consumer connections, roughly 230&nbsp;VAr
-        per connection over 2013&ndash;2025. The mandated EMC filter inside every
-        switched-mode power supply is advanced as the candidate mechanism, and
-        labelled as the hypothesis it is. Both inputs are records any system
-        operator already holds, so the measurement travels. The figures here are
-        live rather than printed &mdash; hover any chart for its values, or drag
-        the capacitance assumption in Fig.&nbsp;3.</p>
+        <p>Twenty-nine years of half-hourly regulatory metering at New
+        Zealand&rsquo;s grid exit points. It measures the reactive character of a
+        whole power system, and shows it crossing from lagging to leading around
+        2016.</p>
+        <p>Most of the drift is on the demand side, about 80% of it. What sits
+        behind that looks like standing capacitance building up behind consumer
+        connections, roughly 230&nbsp;VAr per connection over 2013&ndash;2025.
+        I think the mandated EMC filter inside every switched-mode power supply
+        is the likely mechanism, but that is a hypothesis and it is labelled as
+        one.</p>
+        <p>Both inputs are records any system operator already holds, so the
+        measurement should travel. The figures here are live rather than printed
+        &mdash; hover any chart for its values, or drag the capacitance
+        assumption in Fig.&nbsp;3.</p>
         <div class="links">
           <a href="https://djhume.github.io/lagging-to-leading/">PDFs and other versions</a>
           <a href="https://doi.org/10.5281/zenodo.22238685">Zenodo record</a>
@@ -245,15 +250,16 @@ footer{
         <p class="tag">2026 &middot; Rasuwa, Nepal &middot; ongoing</p>
         <h3><a href="https://djhume.github.io/nepal-flood-2026/">The Trishuli Investigation</a></h3>
         <p>An independent physics analysis of the Langtang Lirung collapse of
-        26 August 2026 and the flood it sent down the Lhende Khola, the Bhote
-        Koshi and the Trishuli &mdash; reported elsewhere as the Bhote Koshi
-        flood. As at 4 September, 1,259 people were confirmed dead in Nepal and
-        5,083 missing. One narrow question: where did the water actually come
-        from? The answer that holds is that it was largely already in the river.
-        Melting ice is expensive and falling is cheap, so a ~1,200&nbsp;m fall
-        cannot supply the ~20&nbsp;Mm&sup3; officially called excess. An ensemble
-        keeping only the runs that reproduce every observable puts the collapse
-        itself at 14&ndash;34&nbsp;Mm&sup3;.</p>
+        26 August 2026, and the flood it sent down the Lhende Khola, the Bhote
+        Koshi and the Trishuli. Reported elsewhere as the Bhote Koshi flood. As
+        at 4 September, 1,259 people were confirmed dead in Nepal and 5,083
+        missing.</p>
+        <p>One narrow question: where did the water actually come from? I think
+        it was largely already in the river. Melting ice is expensive and falling
+        is cheap, so a ~1,200&nbsp;m fall cannot supply the ~20&nbsp;Mm&sup3;
+        officially called excess. Keep only the model runs that reproduce every
+        observable, and the collapse itself comes out at
+        14&ndash;34&nbsp;Mm&sup3;.</p>
 
         <figure>
           <div class="plot">
@@ -271,12 +277,12 @@ footer{
           routing data.</figcaption>
         </figure>
 
-        <p class="note">Ongoing, and the figures above are working numbers
-        rather than results: the 14&ndash;34&nbsp;Mm&sup3; range rests on ten
-        surviving runs and a deposition cap since found too tight, so it will
-        move. Five findings retracted in the first week and three more corrected
-        after reading the published pages cold &mdash; every one still visible,
-        with its reasons.</p>
+        <p class="note">Still going, so treat the numbers above as working
+        numbers rather than results. That 14&ndash;34&nbsp;Mm&sup3; range rests
+        on ten surviving runs and a deposition cap I now think is too tight, so
+        it will move. Five findings retracted in the first week, three more
+        corrected after reading the published pages cold. All of them still up,
+        with the reasons.</p>
 
         <div class="links">
           <a href="https://djhume.github.io/nepal-flood-2026/">Read the analysis</a>
@@ -292,11 +298,11 @@ footer{
    <div class="field">
     <h2>Off the clock</h2>
     <div class="col">
-      <p style="margin:0;max-width:60ch">Rogaines and adventure racing, mostly
-      in the South Island. Before that, real exploration underground &mdash; the
-      deep reaches of New Zealand&rsquo;s largest cave systems, where the map
-      runs out &mdash; and cave search and rescue. Pipi the dog comes to the
-      training and not the races.</p>
+      <p style="margin:0;max-width:60ch">Rogaines and adventure racing these
+      days, mostly in the South Island. Before that a lot of caving, quite a bit
+      of it genuine exploration in the deep parts of New Zealand&rsquo;s biggest
+      systems, where the map runs out. Cave search and rescue too. Pipi the dog
+      comes to the training but not the races.</p>
     </div>
    </div>
   </section>
@@ -316,8 +322,8 @@ footer{
   </section>
 
   <footer>
-    Rebuilt September 2026. An Octopress blog stood on this address from 2014
-    until this year; it is still in the repository history, where it belongs.
+    Rebuilt September 2026. There was an Octopress blog on this address from
+    2014, and it is still in the repository history if anyone really wants it.
   </footer>
 
 </main>
