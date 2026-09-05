@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://djhume.github.io/sitemap.xml 
