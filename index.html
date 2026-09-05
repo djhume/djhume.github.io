@@ -1,65 +1,289 @@
 <!doctype html>
+<html lang="en-NZ">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dave Hume</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Serif+4:opsz,wght@8..60,400&family=IBM+Plex+Mono:wght@400&display=swap">
+<meta name="description" content="Dave Hume — engineer, Wellington, New Zealand. Electricity networks, power systems, and the occasional flood.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
 <style>
 :root{
-  --ground:#f2f5f4; --ink:#22303a; --ink-soft:#54646f; --line:#d3dcda;
-  --river:#1e5f8e;
-  --serif:"Source Serif 4",Georgia,serif;
-  --display:"Newsreader",Georgia,serif;
-  --mono:"IBM Plex Mono",monospace;
+  color-scheme: light dark;
+  --ground:#e9edef;
+  --panel:#e1e7ea;
+  --ink:#16232b;
+  --ink-soft:#5a6b74;
+  --rule:#c6d0d5;
+  --rule-soft:#d7dfe2;
+  --accent:#0e6a72;
+  --accent-wash:rgba(14,106,114,.10);
+  --amber:#a8630b;
+
+  --display:"Zilla Slab",Rockwell,Georgia,serif;
+  --body:"Source Sans 3",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+
+  --gutter:9.5rem;
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ground:#131b21; --ink:#e2e9ec; --ink-soft:#9fb0ba; --line:#2c3a44;
-    --river:#6aa8d8;
+  :root{
+    --ground:#101a20;
+    --panel:#16232b;
+    --ink:#dde6ea;
+    --ink-soft:#8fa2ac;
+    --rule:#26353d;
+    --rule-soft:#1c2930;
+    --accent:#4fb3ac;
+    --accent-wash:rgba(79,179,172,.13);
+    --amber:#d9932f;
   }
 }
-:root[data-theme="dark"]{
-  --ground:#131b21; --ink:#e2e9ec; --ink-soft:#9fb0ba; --line:#2c3a44;
-  --river:#6aa8d8;
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
+  font-synthesis-weight:none;
+  -webkit-font-smoothing:antialiased;
 }
-body{background:var(--ground);color:var(--ink);font-family:var(--serif);
-  font-size:17px;line-height:1.65;margin:0}
-.wrap{max-width:620px;margin:0 auto;padding:72px 22px 80px}
-h1{font-family:var(--display);font-weight:600;font-size:38px;margin:0 0 .1em}
-.where{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:28px}
-p{max-width:60ch;margin:0 0 1.1em}
-a{color:var(--river)}
-h2{font-family:var(--display);font-weight:600;font-size:19px;
-  margin:2.2em 0 .5em}
-.item{border-top:1px solid var(--line);padding:14px 0}
-.item .t{font-family:var(--display);font-size:17.5px;font-weight:600;
-  display:block;margin-bottom:3px}
-.item .d{font-size:15px;color:var(--ink-soft);display:block}
-footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);
-  font-family:var(--mono);font-size:11.5px;color:var(--ink-soft)}
+
+.sheet{max-width:53rem;margin:0 auto;padding:4.5rem 1.5rem 5rem}
+
+/* ---- masthead ---- */
+.masthead{display:grid;gap:.35rem}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(2.1rem,6vw,2.85rem);
+  line-height:1.04;letter-spacing:-.015em;
+  margin:0;text-wrap:balance;
+}
+.locator{
+  font-family:var(--mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);
+}
+.lede{max-width:62ch;margin:1.4rem 0 0}
+.lede p{margin:0 0 .85rem}
+.lede p:last-child{margin-bottom:0}
+.aside{color:var(--ink-soft);font-size:.94rem}
+
+/* ---- epigraph ---- */
+.epigraph{
+  margin:2.6rem 0 0;padding:0 0 0 1.1rem;
+  border-left:2px solid var(--rule);max-width:52ch;
+}
+.epigraph q{
+  font-family:var(--display);font-weight:500;font-style:italic;
+  font-size:1.14rem;line-height:1.45;display:block;quotes:none;
+}
+.epigraph cite{
+  display:block;margin-top:.5rem;font-style:normal;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* ---- gutter sections ---- */
+section{
+  margin-top:3.4rem;padding-top:1.5rem;
+  border-top:1px solid var(--rule);
+}
+.field{display:grid;grid-template-columns:var(--gutter) minmax(0,1fr);gap:0 2rem}
+h2{
+  font-family:var(--mono);font-weight:500;font-size:.7rem;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);
+  margin:0;padding-top:.32rem;
+}
+.col{min-width:0}
+
+/* ---- work entries ---- */
+.entry{padding-bottom:1.9rem}
+.entry + .entry{padding-top:1.9rem;border-top:1px solid var(--rule-soft)}
+.entry:last-child{padding-bottom:0}
+.entry h3{
+  font-family:var(--display);font-weight:600;font-size:1.19rem;
+  line-height:1.25;margin:0 0 .3rem;letter-spacing:-.005em;
+}
+.entry p{margin:0;max-width:60ch;color:var(--ink)}
+.tag{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;
+  color:var(--ink-soft);margin:0 0 .55rem;
+  font-variant-numeric:tabular-nums;
+}
+.note{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.02em;
+  color:var(--amber);margin:.6rem 0 0;font-variant-numeric:tabular-nums;
+}
+.links{
+  display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin:.7rem 0 0;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;
+}
+
+/* ---- the long section ---- */
+figure{margin:1.1rem 0 0}
+.plot{
+  background:var(--panel);border:1px solid var(--rule-soft);
+  padding:.55rem .6rem .4rem;
+}
+.plot svg{display:block;width:100%;height:auto}
+.plot-area{fill:var(--accent-wash)}
+.plot-line{fill:none;stroke:var(--accent);stroke-width:1.25;
+  stroke-linejoin:round;stroke-linecap:round}
+.plot-base{stroke:var(--rule);stroke-width:1}
+.scale{
+  display:flex;justify-content:space-between;gap:1rem;
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.05em;
+  color:var(--ink-soft);margin-top:.3rem;font-variant-numeric:tabular-nums;
+}
+figcaption{
+  font-family:var(--mono);font-size:.63rem;line-height:1.55;
+  letter-spacing:.03em;color:var(--ink-soft);margin-top:.5rem;
+}
+
+/* ---- elsewhere ---- */
+.where-list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.where-list a{font-family:var(--display);font-weight:500;font-size:1.02rem}
+.where-list span{
+  font-family:var(--mono);font-size:.68rem;color:var(--ink-soft);
+  letter-spacing:.03em;
+}
+
+/* ---- links ---- */
+a{color:var(--accent);text-decoration:none;
+  border-bottom:1px solid var(--accent-wash);
+  transition:border-color .12s ease}
+a:hover{border-bottom-color:currentColor}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+
+footer{
+  margin-top:3.4rem;padding-top:1.4rem;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.68rem;line-height:1.7;
+  letter-spacing:.03em;color:var(--ink-soft);max-width:62ch;
+}
+
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .sheet{padding:3rem 1.15rem 3.5rem}
+  .field{grid-template-columns:minmax(0,1fr);gap:.9rem}
+  h2{padding-top:0}
+  section{margin-top:2.7rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
 </style>
 
-<div class="wrap">
-<h1>Dave Hume</h1>
-<div class="where">Engineer · Wellington, New Zealand</div>
+<body>
+<main class="sheet">
 
-<p>I work on electricity networks and power systems, and on whatever else
-turns out to be a routing problem in disguise.</p>
+  <header class="masthead">
+    <h1>Dave Hume</h1>
+    <div class="locator">Engineer &middot; Wellington, New Zealand</div>
+    <div class="lede">
+      <p>Twenty years in the New Zealand electricity sector: power systems,
+      networks, markets, regulation. I read grid data for a living, and I like
+      the parts of the job that turn out to be routing problems in disguise.</p>
+      <p class="aside">I work full time at the Electricity Authority. Nothing on
+      this page is Authority work, and none of it speaks for them.</p>
+    </div>
+  </header>
 
-<h2>Current work</h2>
+  <blockquote class="epigraph">
+    <q>A wise man proportions his belief to the evidence.</q>
+    <cite>David Hume, 1748 &mdash; no relation established</cite>
+  </blockquote>
 
-<div class="item">
-  <a class="t" href="https://djhume.github.io/nepal-flood-2026/">The Trishuli Investigation</a>
-  <span class="d">Where the water came from in the 26 August 2026 Langtang
-  Lirung collapse and Trishuli flood, Nepal — an independent physics analysis,
-  with the code, the data and every retraction on show.</span>
-</div>
+  <section>
+   <div class="field">
+    <h2>Current work</h2>
+    <div class="col">
 
-<div class="item">
-  <a class="t" href="https://github.com/djhume">Code</a>
-  <span class="d">Repositories on GitHub.</span>
-</div>
+      <article class="entry">
+        <p class="tag">2026 &middot; Nepal &middot; ongoing</p>
+        <h3><a href="https://djhume.github.io/nepal-flood-2026/">The Trishuli Investigation</a></h3>
+        <p>An independent physics analysis of the Langtang Lirung collapse of
+        26 August 2026 and the flood it sent down the Trishuli. Where the water
+        came from, how fast it moved, and how big the collapse actually was.
+        The finding that survives is that the water was largely already in the
+        river &mdash; a 1,200 m fall cannot melt enough ice to account for it.</p>
 
-<footer>Rebuilt September 2026. The Octopress blog that stood here since 2014
-has been retired.</footer>
-</div>
+        <figure>
+          <div class="plot">
+            <svg viewBox="0 0 620 84" role="img" aria-label="Long section of the Trishuli from the collapse scar at 4,928 metres down to Devghat at 186 metres over 199 kilometres.">
+              <path class="plot-area" d="M 6.0 8.0 L 10.9 23.9 L 15.8 26.8 L 20.7 29.5 L 25.5 34.5 L 30.4 37.5 L 35.3 38.3 L 40.2 42.9 L 45.1 45.3 L 50.0 46.9 L 54.8 46.7 L 59.7 48.8 L 64.6 49.3 L 69.5 51.6 L 74.4 53.2 L 79.3 53.7 L 84.1 54.2 L 89.0 55.1 L 93.9 55.7 L 98.8 55.9 L 103.7 56.6 L 108.6 57.3 L 113.4 58.0 L 118.3 58.3 L 123.2 58.8 L 128.1 59.4 L 133.0 59.2 L 137.9 60.6 L 142.7 60.9 L 147.6 61.6 L 152.5 62.4 L 157.4 63.2 L 162.3 63.7 L 167.2 64.4 L 172.0 65.5 L 176.9 66.3 L 181.8 66.7 L 186.7 67.6 L 191.6 68.1 L 196.5 68.7 L 201.3 69.1 L 206.2 69.6 L 211.1 69.8 L 216.0 70.2 L 220.9 70.5 L 225.8 70.6 L 230.6 70.7 L 235.5 70.9 L 240.4 71.2 L 245.3 71.4 L 250.2 71.6 L 255.1 71.7 L 259.9 71.8 L 264.8 71.9 L 269.7 72.0 L 274.6 72.1 L 279.5 72.2 L 284.4 72.2 L 289.2 72.4 L 294.1 72.5 L 299.0 72.6 L 303.9 72.5 L 308.8 72.7 L 313.7 72.6 L 318.5 72.7 L 323.4 72.9 L 328.3 72.7 L 333.2 72.9 L 338.1 73.1 L 343.0 73.0 L 347.8 73.1 L 352.7 73.2 L 357.6 73.4 L 362.5 73.3 L 367.4 73.5 L 372.3 73.5 L 377.1 73.5 L 382.0 73.5 L 386.9 73.4 L 391.8 73.6 L 396.7 73.8 L 401.6 73.8 L 406.4 73.9 L 411.3 74.0 L 416.2 74.0 L 421.1 74.2 L 426.0 74.1 L 430.9 74.3 L 435.8 74.3 L 440.6 74.3 L 445.5 74.4 L 450.4 74.4 L 455.3 74.6 L 460.2 74.6 L 465.1 74.6 L 469.9 74.7 L 474.8 74.7 L 479.7 74.8 L 484.6 75.0 L 489.5 75.0 L 494.4 74.9 L 499.2 75.1 L 504.1 75.0 L 509.0 75.0 L 513.9 75.1 L 518.8 75.3 L 523.7 75.2 L 528.5 75.3 L 533.4 75.5 L 538.3 75.1 L 543.2 75.5 L 548.1 75.3 L 553.0 75.4 L 557.8 75.5 L 562.7 75.6 L 567.6 75.8 L 572.5 75.5 L 577.4 75.7 L 582.3 75.5 L 587.1 75.7 L 592.0 75.7 L 596.9 75.7 L 601.8 75.9 L 606.7 75.9 L 611.6 75.9 L 614.0 76.0 L 614.0 76 L 6.0 76 Z"></path>
+              <path class="plot-line" d="M 6.0 8.0 L 10.9 23.9 L 15.8 26.8 L 20.7 29.5 L 25.5 34.5 L 30.4 37.5 L 35.3 38.3 L 40.2 42.9 L 45.1 45.3 L 50.0 46.9 L 54.8 46.7 L 59.7 48.8 L 64.6 49.3 L 69.5 51.6 L 74.4 53.2 L 79.3 53.7 L 84.1 54.2 L 89.0 55.1 L 93.9 55.7 L 98.8 55.9 L 103.7 56.6 L 108.6 57.3 L 113.4 58.0 L 118.3 58.3 L 123.2 58.8 L 128.1 59.4 L 133.0 59.2 L 137.9 60.6 L 142.7 60.9 L 147.6 61.6 L 152.5 62.4 L 157.4 63.2 L 162.3 63.7 L 167.2 64.4 L 172.0 65.5 L 176.9 66.3 L 181.8 66.7 L 186.7 67.6 L 191.6 68.1 L 196.5 68.7 L 201.3 69.1 L 206.2 69.6 L 211.1 69.8 L 216.0 70.2 L 220.9 70.5 L 225.8 70.6 L 230.6 70.7 L 235.5 70.9 L 240.4 71.2 L 245.3 71.4 L 250.2 71.6 L 255.1 71.7 L 259.9 71.8 L 264.8 71.9 L 269.7 72.0 L 274.6 72.1 L 279.5 72.2 L 284.4 72.2 L 289.2 72.4 L 294.1 72.5 L 299.0 72.6 L 303.9 72.5 L 308.8 72.7 L 313.7 72.6 L 318.5 72.7 L 323.4 72.9 L 328.3 72.7 L 333.2 72.9 L 338.1 73.1 L 343.0 73.0 L 347.8 73.1 L 352.7 73.2 L 357.6 73.4 L 362.5 73.3 L 367.4 73.5 L 372.3 73.5 L 377.1 73.5 L 382.0 73.5 L 386.9 73.4 L 391.8 73.6 L 396.7 73.8 L 401.6 73.8 L 406.4 73.9 L 411.3 74.0 L 416.2 74.0 L 421.1 74.2 L 426.0 74.1 L 430.9 74.3 L 435.8 74.3 L 440.6 74.3 L 445.5 74.4 L 450.4 74.4 L 455.3 74.6 L 460.2 74.6 L 465.1 74.6 L 469.9 74.7 L 474.8 74.7 L 479.7 74.8 L 484.6 75.0 L 489.5 75.0 L 494.4 74.9 L 499.2 75.1 L 504.1 75.0 L 509.0 75.0 L 513.9 75.1 L 518.8 75.3 L 523.7 75.2 L 528.5 75.3 L 533.4 75.5 L 538.3 75.1 L 543.2 75.5 L 548.1 75.3 L 553.0 75.4 L 557.8 75.5 L 562.7 75.6 L 567.6 75.8 L 572.5 75.5 L 577.4 75.7 L 582.3 75.5 L 587.1 75.7 L 592.0 75.7 L 596.9 75.7 L 601.8 75.9 L 606.7 75.9 L 611.6 75.9 L 614.0 76.0"></path>
+              <line class="plot-base" x1="6" y1="76" x2="614" y2="76"></line>
+            </svg>
+          </div>
+          <div class="scale">
+            <span>Scar &middot; 4,928 m</span>
+            <span>Devghat &middot; 186 m</span>
+          </div>
+          <figcaption>Channel long section, 199 km, from the project&rsquo;s own
+          routing data.</figcaption>
+        </figure>
+
+        <p class="note">Five findings retracted in three days, headline result
+        included. Every one published with its reasons.</p>
+
+        <div class="links">
+          <a href="https://djhume.github.io/nepal-flood-2026/">Read the analysis</a>
+          <a href="https://github.com/djhume/nepal-flood-2026">Code and data</a>
+        </div>
+      </article>
+
+      <article class="entry">
+        <p class="tag">2009&ndash;2025 &middot; 29 distributors</p>
+        <h3><a href="https://djhume.github.io/nz-power-factor/">NZ Power Factor Explorer</a></h3>
+        <p>Power factor across all 29 New Zealand electricity distribution
+        businesses, from public EMI data. Sixteen years of it, plotted so you
+        can watch the reactive power drift network by network.</p>
+        <div class="links">
+          <a href="https://djhume.github.io/nz-power-factor/">Open the explorer</a>
+          <a href="https://github.com/djhume/nz-power-factor">Source</a>
+        </div>
+      </article>
+
+    </div>
+   </div>
+  </section>
+
+  <section>
+   <div class="field">
+    <h2>Off the clock</h2>
+    <div class="col">
+      <p style="margin:0;max-width:60ch">A fair amount of time underground in
+      New Zealand caves, and the survey drawings to prove it. Above ground it is
+      rogaines and adventure racing, mostly in the South Island. Pipi the dog
+      comes to the training and not the races.</p>
+    </div>
+   </div>
+  </section>
+
+  <section>
+   <div class="field">
+    <h2>Elsewhere</h2>
+    <div class="col">
+      <ul class="where-list">
+        <li><a href="https://github.com/djhume">GitHub</a> <span>&mdash; djhume</span></li>
+        <li><a href="https://www.linkedin.com/in/dave-hume-829a8a1/">LinkedIn</a> <span>&mdash; the formal version</span></li>
+        <li><a href="https://orcid.org/0009-0006-6920-0598">ORCID</a> <span>&mdash; 0009-0006-6920-0598</span></li>
+        <li><a href="https://www.strava.com/athletes/5685069">Strava</a> <span>&mdash; the evidence for the paragraph above</span></li>
+      </ul>
+    </div>
+   </div>
+  </section>
+
+  <footer>
+    Rebuilt September 2026. An Octopress blog stood on this address from 2014
+    until this year; it is still in the repository history, where it belongs.
+  </footer>
+
+</main>
+</body>
+</html>
