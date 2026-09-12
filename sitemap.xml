@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://djhume.github.io/</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djhume.github.io/lagging-to-leading/</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://djhume.github.io/lagging-to-leading/web/lagging-to-leading.html</loc><lastmod>2026-09-05</lastmod><changefreq>yearly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://djhume.github.io/lagging-to-leading/paper/extended-version.pdf</loc><lastmod>2026-09-05</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://djhume.github.io/lagging-to-leading/paper/journal-version-draft.pdf</loc><lastmod>2026-09-05</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://djhume.github.io/nz-power-factor/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://djhume.github.io/nz-power-factor/phasor/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://djhume.github.io/nepal-flood-2026/</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
+</urlset>
